@@ -41,6 +41,7 @@ resource "aws_route_table" "public-rt" {
 
   route {
     cidr_block = "10.0.0.0/16"
+    gateway_id = "local"
   }
   route {
     cidr_block = "0.0.0.0/0"
@@ -63,10 +64,10 @@ resource "aws_route_table" "private-rt" {
 
   route {
     cidr_block = "10.0.0.0/16"
-
+    gateway_id = "local"
   }
 
-  tags = {
+    tags = {
     Name = "private-rt"
   }
 }

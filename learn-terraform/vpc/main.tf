@@ -4,7 +4,6 @@ resource "aws_instance" "web" {
   associate_public_ip_address = true
   availability_zone = "us-east-1d"
   key_name = "amaz-key.pem"
-  private_ip = true
   vpc_security_group_ids = ["sg-08f41a3b66746e56a"]
   subnet_id = "${aws_subnet.Public-Subnet.id}"
   tags = {

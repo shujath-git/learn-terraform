@@ -4,11 +4,28 @@ resource "aws_instance" "web" {
   associate_public_ip_address = true
   availability_zone = "us-east-1d"
   key_name = "amaz-key.pem"
-  vpc_security_group_ids = ["sg-08f41a3b66746e56a"]
+  vpc_security_group_ids = [aws_security_group.all-allowed.id]
   subnet_id = "${aws_subnet.Public-Subnet.id}"
   tags = {
 Name = "HelloWorld"
 }
+}
+
+resource "aws_security_group" "all-allowed" {
+  vpc_id = "${aws_vpc.project-vpc.id}"
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = -1
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = -1
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 
 resource "aws_vpc" "project-vpc" {

@@ -3,7 +3,7 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   associate_public_ip_address = true
   availability_zone = "us-east-1d"
-  key_name = "amaz-key.pem"
+  key_name = "amaz-key"
   vpc_security_group_ids = [aws_security_group.all-allowed.id]
   subnet_id = "${aws_subnet.Public-Subnet.id}"
   tags = {

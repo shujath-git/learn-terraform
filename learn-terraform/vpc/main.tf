@@ -40,11 +40,11 @@ resource "aws_route_table" "public-rt" {
   vpc_id = aws_vpc.project-vpc.id
 
   route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.igw.id
+    cidr_block = "10.0.0.0/16"
   }
   route {
-    cidr_block = "10.0.0.0/16"
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
   }
 
   tags = {
@@ -67,7 +67,7 @@ resource "aws_route_table" "private-rt" {
   }
 
   tags = {
-    Name = "public-rt"
+    Name = "private-rt"
   }
 }
 

@@ -1,8 +1,8 @@
 
 resource "aws_instance" "web" {
-  ami           = "ami-0277155c3f0ab2930"
+  ami           = "ami-0f3c7d07486cad139"
   instance_type = "t2.micro"
-  vpc_security_group_ids = ["sgr-03a29df0a6097d159"]
+  vpc_security_group_ids = ["sg-08f41a3b66746e56a"]
   tags = {
     Name = "HelloWorld"
   }
